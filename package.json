@@ -1,0 +1,21 @@
+{
+  "name": "student-management-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "keywords": ["express", "mysql", "student-management", "backend"],
+  "author": "Bokang Ntsalong",
+  "license": "ISC"
+}
