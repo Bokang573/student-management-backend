@@ -1,5 +1,5 @@
 {
-  "name": "student-management-backend",
+  "name": "student-management-api",
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
@@ -16,6 +16,6 @@
     "node": "18.x"
   },
   "keywords": ["express", "mysql", "student-management", "backend"],
-  "author": "Bokang Ntsalong",
+  "author": "Bokang Nts'along",
   "license": "ISC"
 }
