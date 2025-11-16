@@ -15,19 +15,19 @@ const frontend_url = process.env.FRONTEND_URL || 'https://chimerical-pothos-5de8
 app.use(cors({ origin: frontend_url }));
 app.use(express.json());
 
-// ---------------- MongoDB Connection ----------------
-const uri = process.env.MONGO_URI; // full Atlas URI in .env
+// MongoDB Connection
+const uri = process.env.MONGO_URI; 
 
 mongoose.connect(uri)
   .then(() => console.log("✅ MongoDB connection established successfully"))
   .catch((err) => console.error("❌ MongoDB connection error:", err.message));
 
-// ---------------- Health ----------------
+// Health 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', db: mongoose.connection.readyState === 1 });
 });
 
-// ---------------- Root ----------------
+// Root 
 app.get('/', (req, res) => {
   res.json({
     status: 'ok',
@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// ---------------- Students ----------------
+// Students
 app.get('/students', async (req, res) => {
   try {
     const students = await Student.find().populate('course_id', 'name');
@@ -82,7 +82,7 @@ app.post('/students', async (req, res) => {
   }
 });
 
-// ---------------- Courses ----------------
+// Courses
 app.get('/courses', async (req, res) => {
   try {
     const courses = await Course.find();
@@ -110,7 +110,7 @@ app.post('/courses', async (req, res) => {
   }
 });
 
-// ---------------- Grades ----------------
+//  Grades
 app.get('/grades', async (req, res) => {
   try {
     const grades = await Grade.find()
@@ -161,12 +161,12 @@ app.post('/grades', async (req, res) => {
   }
 });
 
-// ---------------- 404 ----------------
+// 404
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
-// ---------------- Server ----------------
+// Server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`🚀 Server running on port ${port}`);
